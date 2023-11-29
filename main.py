@@ -31,7 +31,7 @@ ball_x = 617
 ball_y = 337
 ball_dir = -3
 ball_dir_y = 1
-ball_speed = 3  # Velocidade inicial da bola
+ball_speed = 2  # Velocidade inicial da bola
 
 # Função para mover o jogador 1
 def move_player():
@@ -51,10 +51,15 @@ def move_player():
     elif player1_y >= 575:
         player1_y = 575
 
-# Função para mover o jogador 2
+# Função para mover o jogador 2 (IA)
 def move_player2():
     global player2_y
-    player2_y = ball_y
+
+    # Move o jogador2 verticalmente em direção à bola
+    if player2_y < ball_y + 23:
+        player2_y += 3
+    elif player2_y + 146 > ball_y:
+        player2_y -= 3
 
 # Função para mover a bola
 def move_ball():
